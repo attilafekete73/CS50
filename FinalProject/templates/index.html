@@ -1,0 +1,62 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Profile
+{% endblock %}
+
+{% block main %}
+
+<table>
+    <thead>
+        <tr>
+            <th>My Courses</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for lines in table %}
+            <tr>
+                <td>
+                    <button type="button" onclick=coursered('{{ lines[0] }}') style="background:transparent;border:none;">{{ lines[0] }}</button>
+                </td>
+            <tr>
+        {% endfor %}
+        <script>
+            function coursered(coursen)
+            {
+                let origin = window.location.origin;
+                window.location.replace(origin+'/course/'+coursen)
+            }
+        </script>
+    </tbody>
+</table>
+<table>
+    <thead>
+        <tr>
+            <th>document in course</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for lines in docincourse %}
+            <tr><td>to {{ lines[1] }} a new file ({{ lines[0] }}) was posted</td><tr>
+        {% endfor %}
+    </tbody>
+</table>
+<table>
+    <thead>
+        <tr>
+            <th>comment to document</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for lines in commenttodoc %}
+            <tr><td>{{ lines[1] }} added a new comment to your file({{ lines[0] }}): "{{ lines[2] }}"</td><tr>
+        {% endfor %}
+    </tbody>
+</table>
+    <!--<br>
+    <form action='/'>
+        <button class="btn btn-primary" type="submit">Join a new course</button>
+    </form>-->
+
+    
+{% endblock %}

@@ -1,0 +1,45 @@
+/* Size for brand */
+body
+{
+    background-color: rgb(255,204,255);
+}
+
+.container-fluid
+{
+    background-color: rgb(255,204,255);
+}
+
+/*.navbar-brand
+{
+    width: min-content;
+    display: inline-block;
+}*/
+
+.logo
+{
+    color:rgb(255, 102, 255);
+    font-size: xx-large;
+}
+
+.prof
+{
+    color:rgb(180, 70, 180);
+    font-size: 60%;
+}
+
+.pig
+{
+    height:2em;
+    width: 2em;
+}
+
+#navbarsearch
+{
+    margin-left:auto;
+    margin-right:0;
+}
+
+.checkbox
+{
+    font-size:small;
+}

@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    document:{{ DOCNAME }}
+{% endblock %}
+
+{% block main %}
+    <h1>{{ DOCNAME }}</h1>
+    {% if isnote == 'False' %}
+        <a href='/downloader/{{ file }}'>Download</a>
+        <script>console.log("Download")</script>
+    {% else %}
+        <div>{{ NOTE }}</div>
+        <script>console.log("NOTE")</script>
+    {% endif %}
+    <table>
+        <tr>
+            <td>
+                <form action="/document/{{ DOCNAME }}" method="post">
+                    <input type="text" name="newcomment" id=newcomment placeholder="Your comment...">
+                    <input type="submit" value="ADD">
+                </form>
+            </td>
+        </tr>
+        {% for comment in comments %}
+            <tr><td>{{ comment[0] }}</td><tr>
+        {% endfor %}
+    </table>
+{% endblock %}

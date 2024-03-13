@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Person:{{ PERSONNAME }}
+{% endblock %}
+
+{% block main %}
+    <h1>{{ PESRONNAME }}</h1>
+    <div>Latest submissions</div> 
+    <form action='/person/{{PERSONNAME}}' method='post'>
+            <input class="searchbar form-control" type="text" name='search' placeholder="Search">
+            <!--<select>
+                <option value="" disabled selected>Order by</option>
+                <option value="date-ascending">Date:ascending</option>
+                <option value="date-descending">Date:descending</option>
+                <option value="name-ascending">Name:ascending</option>
+                <option value="name-descending">Name:descending</option>
+            </select>-->
+            <input class="searchbtn btn btn-primary" type="submit" value="Search">
+    </form>
+    <table>
+        {% for lines in submissions %}
+        <tr>
+            <td>
+                <button type="button" onclick=docred('{{ lines[0] }}') style="background:transparent;border:none;">{{ lines[0] }}</button>
+            </td>
+        <tr>
+        {% endfor %}
+        <script>
+            function docred(doc)
+            {
+                let origin = window.location.origin;
+                window.location.replace(origin+'/document/'+doc)
+            }
+        </script>
+    </table>
+{% endblock %}

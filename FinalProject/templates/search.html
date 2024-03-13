@@ -1,0 +1,131 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Search
+{% endblock %}
+
+{% block main %}
+
+<div id="accordion">
+    <div class="card">
+    <div class="card-header">
+        <a class="btn" data-bs-toggle="collapse" href="#collapseOne">
+            DOCUMENTS
+        </a>
+    </div>
+    {% if docres %}
+        <div id="collapseOne" class="collapse show" data-bs-parent="#accordion">
+    {% else %}
+        <div id="collapseOne" class="collapse" data-bs-parent="#accordion">
+    {% endif %}
+        {% if docres %}
+            <div class="card-body">
+                <table>
+                    {% for doc in docres %}
+                        <tr>
+                            <td>
+                                <button type="button" onclick=docred('{{ doc[1] }}') style="background:transparent;border:none;">{{ doc[1] }}</button>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    <script>
+                        function docred(docn)
+                        {
+                            let origin = window.location.origin;
+                            window.location.replace(origin+'/document/'+docn)
+                        }
+                    </script>
+                </table>
+            </div>
+        {% endif %}
+    </div>
+    </div>
+  
+    
+    <div class="card">
+    <div class="card-header">
+        <a class="collapsed btn" data-bs-toggle="collapse" href="#collapseTwo">
+            COURSES
+        </a>
+    </div>
+    {% if courseres %}
+        {% if not docres %}
+            <div id="collapseTwo" class="collapse show" data-bs-parent="#accordion">
+        {% else %}
+            <div id="collapseTwo" class="collapse" data-bs-parent="#accordion">
+        {% endif %}
+    {% else %}
+        <div id="collapseTwo" class="collapse" data-bs-parent="#accordion">
+    {% endif %}
+        {% if courseres %}
+            <div class="card-body">
+                <table>
+                    {% for course in courseres %}
+                        <tr>
+                            <td>
+                                <button type="button" onclick=coursered('{{ course[0] }}') style="background:transparent;border:none;">{{ course[0] }}</button>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    <script>
+                        function coursered(coursen)
+                        {
+                            let origin = window.location.origin;
+                            window.location.replace(origin+'/course/'+coursen)
+                        }
+                    </script>
+                </table>
+            </div>
+        {% endif %}
+    </div>
+    </div>
+        
+    
+    <div class="card">
+    <div class="card-header">
+        <a class="collapsed btn" data-bs-toggle="collapse" href="#collapseThree">
+            USERS
+        </a>
+    </div>
+    {% if userres %}
+        {% if not docres %}
+            {% if not courseres %}
+                <div id="collapseThree" class="collapse show" data-bs-parent="#accordion">
+            {% else %}
+                <div id="collapseTwo" class="collapse" data-bs-parent="#accordion">
+            {% endif %}
+        {% else %}
+            <div id="collapseTwo" class="collapse" data-bs-parent="#accordion">
+        {% endif %}
+    {% else %}
+        <div id="collapseTwo" class="collapse" data-bs-parent="#accordion">
+    {% endif %}
+        {% if userres %}
+            <div class="card-body">
+                <table>
+                    {% for user in userres %}
+                        <tr>
+                            <td>
+                                <button type="button" onclick=userred('{{ user[0] }}') style="background:transparent;border:none;">{{ user[0] }}</button>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    <script>
+                        function userred(usern)
+                        {
+                            let origin = window.location.origin;
+                            window.location.replace(origin+'/person/'+usern)
+                        }
+                    </script>
+                </table>
+            </div>
+        {% endif %}
+    </div>
+    </div>
+  
+  </div>
+  
+
+
+    
+{% endblock %}

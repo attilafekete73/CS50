@@ -1,0 +1,69 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Course:{{ COURSENAME }}
+{% endblock %}
+
+{% block main %}
+    <h1>{{ COURSENAME }}</h1>
+    {% if member==1 %}
+        <button type="button" onclick=leavecourse()>Leave</button>
+        <script>
+            function leavecourse()
+            {
+                let coursen='{{ COURSENAME }}'
+                let origin = window.location.origin;
+                window.location.replace(origin+'/leavecourse/'+coursen)
+            }
+        </script>
+        <button type="button" onclick=addData()> add Data</button>
+        <script>
+            function addData()
+            {
+                let coursen='{{ COURSENAME }}'
+                let origin = window.location.origin;
+                window.location.replace(origin+'/addData/'+coursen)
+            }
+        </script>
+    {% else %}
+        <button type="button" onclick=joincourse()>Join</button>
+        <script>
+            function joincourse()
+            {
+                let coursen='{{ COURSENAME }}'
+                let origin = window.location.origin;
+                console.log(origin)
+                console.log(origin+'/joincourse/'+coursen)
+                window.location.replace(origin+'/joincourse/'+coursen)
+            }
+        </script>
+    {% endif %}
+    <div>Latest submissions</div> 
+    <form action='/course/{{COURSENAME}}' method='post'>
+            <input class="searchbar form-control" type="text" name='search' placeholder="Search">
+            <!--<select>
+                <option value="" disabled selected>Order by</option>
+                <option value="date-ascending">Date:ascending</option>
+                <option value="date-descending">Date:descending</option>
+                <option value="name-ascending">Name:ascending</option>
+                <option value="name-descending">Name:descending</option>
+            </select>-->
+            <input class="searchbtn btn btn-primary" type="submit" value="Search">
+    </form>
+    <table>
+        {% for lines in submissions %}
+        <tr>
+            <td>
+                <button type="button" onclick=docred('{{ lines[0] }}') style="background:transparent;border:none;">{{ lines[0] }}</button>
+            </td>
+        <tr>
+        {% endfor %}
+        <script>
+            function docred(doc)
+            {
+                let origin = window.location.origin;
+                window.location.replace(origin+'/document/'+doc)
+            }
+        </script>
+    </table>
+{% endblock %}

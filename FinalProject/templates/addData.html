@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    addData
+{% endblock %}
+
+{% block main %}
+
+<form action="/addData/{{ COURSENAME }}" method="post" enctype=multipart/form-data>    
+    <input type="radio" id="NOTE" name="notefile" value="NOTE" checked='checked' onchange=change()>
+    <label for="NOTE">NOTE</label>
+    <input type="radio" id="FILE" name="notefile" value="FILE" onchange=change()>
+    <label for="FILE">FILE</label>
+    <textarea name="note" id="note" style="visibility:visible;"></textarea>
+    <input type="file" name="file" id="file" style="visibility:hidden;">
+    <input type="text" name="nameofsubm" id=nameofsubm placeholder="name of submission">
+    <input type="text" name="teacher_name" id=teacher_name placeholder="teacher's name">
+    <span>Please add at least 3 tags for better searchability (filetype, teacher's name, name of submission will be automatically generated tags). Please add your tags separated by only a comma, and no spaces.</span>
+    <input type="text" name="tags" id="tags" placeholder="tags (e.g.: biology,anatomy,human,circulatory system,heart)">
+    <input type="submit" value="Submit">
+</form>
+<script>
+    function change(){
+        switch(document.querySelector('input[name="notefile"]:checked').value){
+            case 'NOTE':
+                document.getElementById("note").style.visibility='visible';
+                document.getElementById("file").style.visibility='hidden';
+                break;
+            case 'FILE':
+                document.getElementById("note").style.visibility='hidden';
+                document.getElementById("file").style.visibility='visible';
+                break;
+        }
+    }
+</script>
+{% endblock %}
