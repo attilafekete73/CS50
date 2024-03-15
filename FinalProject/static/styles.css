@@ -43,3 +43,18 @@ body
 {
     font-size:small;
 }
+
+.searches
+{
+    width:100%
+}
+
+.searchbar
+{
+    width:180%;
+}
+
+.searchbtn
+{
+    width:20%;
+}

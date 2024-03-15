@@ -34,11 +34,11 @@
                     {% if session["user_id"] %}
                         <div id="navbarsearch">
                             <form class="navbar-brand" action="/search" method="post">
-                                <div class="btn-group">
+                                <div class="btn-group  searches">
                                     <input class="searchbar" type="text" name="search" placeholder="Search">
                                     <input class="searchbtn btn btn-primary" type="submit" value="Search">
                                 </div>
-                                <div class="checkbox">
+                                <div class="checkbox filters">
                                     <input type="checkbox" name='searchbox' id="srcCourse" value="COURSE"><label for="srcCourse">course</label>
                                     <input type="checkbox" name='searchbox' id="srcUser" value="USER"><label for="srcUser">user</label>
                                     <input type="checkbox" name='searchbox' id="srcPicture" value="PICTURE"><label for="srcPicture">picture</label>
