@@ -201,3 +201,44 @@ td
     margin-left: auto;
     margin-right: auto;
 }
+
+.ADtext
+{
+    width:30%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.ADnote
+{
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1em;
+}
+
+.ADfile
+{
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1em;
+}
+
+#taginfo
+{
+    margin-left: auto;
+    margin-right: auto;
+    font-size: small;
+    width:30%;
+}
+
+.NF
+{
+    font-size: larger;
+}
+
+.ADbtn
+{
+    width:5em;
+}

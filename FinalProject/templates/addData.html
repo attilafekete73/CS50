@@ -8,27 +8,24 @@
 
 <form action="/addData/{{ COURSENAME }}" method="post" enctype=multipart/form-data>    
     <input type="radio" id="NOTE" name="notefile" value="NOTE" checked='checked' onchange=change()>
-    <label for="NOTE">NOTE</label>
+    <label for="NOTE"class="NF">NOTE</label>
     <input type="radio" id="FILE" name="notefile" value="FILE" onchange=change()>
-    <label for="FILE">FILE</label>
-    <textarea name="note" id="note" style="visibility:visible;"></textarea>
-    <input type="file" name="file" id="file" style="visibility:hidden;">
-    <input type="text" name="nameofsubm" id=nameofsubm placeholder="name of submission">
-    <input type="text" name="teacher_name" id=teacher_name placeholder="teacher's name">
-    <span>Please add at least 3 tags for better searchability (filetype, teacher's name, name of submission will be automatically generated tags). Please add your tags separated by only a comma, and no spaces.</span>
-    <input type="text" name="tags" id="tags" placeholder="tags (e.g.: biology,anatomy,human,circulatory system,heart)">
-    <input type="submit" value="Submit">
+    <label for="FILE" class="NF">FILE</label>
+    <div id="NoF"><textarea name="note" class="form-control ADnote" placeholder="Please add your note here!" id="note"></textarea></div>
+    <input type="text" class="form-control ADtext" name="nameofsubm" id=nameofsubm placeholder="name of submission"><br>
+    <input type="text" class="form-control ADtext" name="teacher_name" id=teacher_name placeholder="teacher's name"><br>
+    <div id="taginfo">Please add at least 3 tags for better searchability (filetype, teacher's name, name of submission will be automatically generated tags). Please add your tags separated by only a comma, and no spaces.</div>
+    <input type="text" class="form-control ADtext" name="tags" id="tags" placeholder="tags (e.g.:biology,anatomy,human,circulatory system,heart)"><br>
+    <input type="submit" class="form-control searchbtn btn btn-primary ADbtn" value="Submit">
 </form>
 <script>
     function change(){
         switch(document.querySelector('input[name="notefile"]:checked').value){
             case 'NOTE':
-                document.getElementById("note").style.visibility='visible';
-                document.getElementById("file").style.visibility='hidden';
+                document.getElementById("NoF").innerHTML= '<textarea name="note" class="form-control ADnote" placeholder="Please add your note here!" id="note"></textarea>';
                 break;
             case 'FILE':
-                document.getElementById("note").style.visibility='hidden';
-                document.getElementById("file").style.visibility='visible';
+                document.getElementById("NoF").innerHTML='<input type="file" class="form-control ADfile" name="file" id="file">';
                 break;
         }
     }
