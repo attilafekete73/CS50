@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block main %}
-    <h1 id='Ch1'>{{ COURSENAME }}</h1>
+    <h1 class='CPh1'>{{ COURSENAME }}</h1>
     <div id='Cbtndiv'>
         {% if member==1 %}
             <button type="button" onclick=leavecourse()>Leave</button>
@@ -42,7 +42,7 @@
     </div>
     <div>Latest submissions</div> 
     <form action='/course/{{COURSENAME}}' method='post'>
-        <div class='btn-group Csearch'>
+        <div class='btn-group CPsearch'>
             <input class="searchbar form-control" type="text" name='search' placeholder="Search">
             <!--<select>
                 <option value="" disabled selected>Order by</option>
@@ -54,7 +54,7 @@
             <input class="searchbtn btn btn-primary" type="submit" value="Search">
         </div>
     </form>
-    <table class='Ctable'>
+    <table class='CPtable'>
         {% for lines in submissions %}
         <tr>
             <td>

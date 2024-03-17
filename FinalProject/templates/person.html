@@ -5,9 +5,10 @@
 {% endblock %}
 
 {% block main %}
-    <h1>{{ PESRONNAME }}</h1>
+    <h1 id='Ph1'>{{ PERSONNAME }}</h1>
     <div>Latest submissions</div> 
     <form action='/person/{{PERSONNAME}}' method='post'>
+        <div class='btn-group CPsearch'>
             <input class="searchbar form-control" type="text" name='search' placeholder="Search">
             <!--<select>
                 <option value="" disabled selected>Order by</option>
@@ -17,8 +18,9 @@
                 <option value="name-descending">Name:descending</option>
             </select>-->
             <input class="searchbtn btn btn-primary" type="submit" value="Search">
+        </div>
     </form>
-    <table>
+    <table class='CPtable'>
         {% for lines in submissions %}
         <tr>
             <td>
