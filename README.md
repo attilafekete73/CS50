@@ -1,6 +1,6 @@
 #profPiggybank
-Video Demo: https://youtu.be/zcLNv3gD4II
-Description:
+#Video Demo: https://youtu.be/zcLNv3gD4II
+#Description:
 app.py: the main flask file. It connects all the routes, wich are in other files for better visibility, this is achieved by blueprints.
 dbhead.py: this is a file, which introduces SQLAlchemy to the code, and connects to the Postgresql server, so that i can execute sql queries in my flask app, such as select, delete, update, insert etc.
 layout.html: this is the border file, the template. it is the one where the navbar is and where the stylesheet is linked to. on the navbar is the logo of the site, which is a button, which when clicked, redirects you automatically to the homepage. on the navbar, there is also a general searchbar, which searches in all data in the datatbase, it also has checkbox based search-filtering for a more convenient search experience. The last thing on the navbar is the logout button, which, i think i don't need to explain further.
