@@ -46,27 +46,27 @@ def search():
             #if 'PICTURE' in filter or 'DOCUMENT' in filter or 'PPT' in filter or 'VIDEO' in filter or 'AUDIO' in filter
             if 'PICTURE' in filter:
                 for doc in tagres:
-                    tags=sess.query(Tag.name).join(Docutags,Docutags.documentid==Document.id).join(Tag,Tag.id==Docutags.tagid).filter(Document.name==doc[1]).distinct().all()
+                    tags=sess.query(Tag.name).join(Docutags,Docutags.tagid==Tag.id).join(Document,Document.id==Docutags.documentid).filter(Document.name==doc[1]).distinct().all()
                     if 'png' in tags[0] or 'jpg' in tags[0] or 'jpeg' in tags[0]:
                         docres.append(doc)
             if 'DOCUMENT' in filter:
                 for doc in tagres:
-                    tags=sess.query(Tag.name).join(Docutags,Docutags.documentid==Document.id).join(Tag,Tag.id==Docutags.tagid).filter(Document.name==doc[2]).distinct().all()
+                    tags=sess.query(Tag.name).join(Docutags,Docutags.tagid==Tag.id).join(Document,Document.id==Docutags.documentid).filter(Document.name==doc[1]).distinct().all()
                     if 'txt' in tags[0] or 'pdf' in tags[0] or 'doc' in tags[0] or 'docx' in tags[0] or 'epub' in tags[0] or 'mobi' in tags[0] or 'xlsx' in tags[0]:
                         docres.append(doc)
             if 'PPT' in filter:
                 for doc in tagres:
-                    tags=sess.query(Tag.name).join(Docutags,Docutags.documentid==Document.id).join(Tag,Tag.id==Docutags.tagid).filter(Document.name==doc[2]).distinct().all()
+                    tags=sess.query(Tag.name).join(Docutags,Docutags.tagid==Tag.id).join(Document,Document.id==Docutags.documentid).filter(Document.name==doc[1]).distinct().all()
                     if 'ppt' in tags[0] or 'pptx' in tags[0]:
                         docres.append(doc)
             if 'VIDEO' in filter:
                 for doc in tagres:
-                    tags=sess.query(Tag.name).join(Docutags,Docutags.documentid==Document.id).join(Tag,Tag.id==Docutags.tagid).filter(Document.name==doc[2]).distinct().all()
+                    tags=sess.query(Tag.name).join(Docutags,Docutags.tagid==Tag.id).join(Document,Document.id==Docutags.documentid).filter(Document.name==doc[1]).distinct().all()
                     if 'mp4' in tags[0]:
                         docres.append(doc)
             if 'AUDIO' in filter:
                 for doc in tagres:
-                    tags=sess.query(Tag.name).join(Docutags,Docutags.documentid==Document.id).join(Tag,Tag.id==Docutags.tagid).filter(Document.name==doc[2]).distinct().all()
+                    tags=sess.query(Tag.name).join(Docutags,Docutags.tagid==Tag.id).join(Document,Document.id==Docutags.documentid).filter(Document.name==doc[1]).distinct().all()
                     if 'mp3' in tags[0]:
                         docres.append(doc)
             if len(filter)==1:
