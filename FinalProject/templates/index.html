@@ -6,7 +6,7 @@
 
 {% block main %}
 
-<table>
+<table class='myCourses table-bordered table-hover'>
     <thead>
         <tr>
             <th>My Courses</th>
@@ -29,30 +29,35 @@
         </script>
     </tbody>
 </table>
-<table>
-    <thead>
-        <tr>
-            <th>document in course</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for lines in docincourse %}
-            <tr><td>to {{ lines[1] }} a new file ({{ lines[0] }}) was posted</td><tr>
-        {% endfor %}
-    </tbody>
-</table>
-<table>
-    <thead>
-        <tr>
-            <th>comment to document</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for lines in commenttodoc %}
-            <tr><td>{{ lines[1] }} added a new comment to your file({{ lines[0] }}): "{{ lines[2] }}"</td><tr>
-        {% endfor %}
-    </tbody>
-</table>
+<div class='containerindex'>
+    <div class='eventtitle'>Your feed</div><br>
+    <div class='events'>
+        <table class='docincourse'>
+            <thead>
+                <tr>
+                    <th>document in course</th>
+                </tr>
+            </thead>
+            <tbody class="DICbod">
+                {% for lines in docincourse %}
+                    <tr><td>to {{ lines[1] }} a new file ({{ lines[0] }}) was posted</td><tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <table class='commtodoc'>
+            <thead>
+                <tr>
+                    <th>comment to document</th>
+                </tr>
+            </thead>
+            <tbody class="CTDbod">
+                {% for lines in commenttodoc %}
+                    <tr><td>{{ lines[1] }} added a new comment to your file({{ lines[0] }}): "{{ lines[2] }}"</td><tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
     <!--<br>
     <form action='/'>
         <button class="btn btn-primary" type="submit">Join a new course</button>

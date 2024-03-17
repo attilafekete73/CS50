@@ -37,9 +37,8 @@ def document(doc):
         sess.commit()
         comments=sess.query(dbhead.Comment.content).filter(dbhead.Comment.documentid==docid[0][0]).order_by(dbhead.Comment.date.desc()).all()
         notedec=sess.query(dbhead.Tag.name).join(dbhead.Docutags,dbhead.Docutags.tagid==dbhead.Tag.id).join(dbhead.Document,dbhead.Document.id==dbhead.Docutags.documentid).filter(dbhead.Document.id==docid[0][0]).filter(dbhead.Tag.name=='NOTE').all()
-        print(len(notedec))
-        print(notedec[0][0])
-        if notedec[0][0] != 'NOTE':
+        
+        if len(notedec) == 0:
             return render_template("document.html",DOCNAME=doc,comments=comments,file=filename[len(filename)-1],isnote='False')
         else:
             with open(filename) as f:

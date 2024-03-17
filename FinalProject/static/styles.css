@@ -58,3 +58,47 @@ body
 {
     width:20%;
 }
+
+.containerindex
+{
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    align-items: center;
+}
+
+.events
+{
+    display: flex;
+}
+
+.myCourses
+{
+    font-size: larger;
+}
+
+.eventtitle
+{
+    font-size:x-large;
+    font-weight: bold;
+}
+
+.docincourse
+{
+    margin:2em;
+}
+
+.commtodoc
+{
+    margin:2em;
+}
+
+.DICbod
+{
+    align-content: baseline;
+}
+
+td
+{
+    text-align: left;
+}
