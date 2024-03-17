@@ -17,7 +17,7 @@ def course(course):
         print(memberdecider)
         if len(memberdecider)==0:
             ismember=0
-        submissions=sess.query(dbhead.Document.name,dbhead.Document.path).join(dbhead.Course, dbhead.Document.courseid==dbhead.Course.id).filter(dbhead.Course.coursename==course).all()
+        submissions=sess.query(dbhead.Document.name,dbhead.Document.path).join(dbhead.Course, dbhead.Document.courseid==dbhead.Course.id).filter(dbhead.Course.coursename==course).distinct().all()
         
         print(submissions)
         print(ismember)
