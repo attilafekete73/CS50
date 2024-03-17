@@ -23,7 +23,10 @@ def addData(course):
         courseid=sess.query(dbhead.Course.id).filter(dbhead.Course.coursename==course).all()
         nameofsubm=request.form.get("nameofsubm")
         teachername=request.form.get("teacher_name")
-        note=request.form.get("note")
+        try:
+            note=request.form.get("note")
+        except KeyError:
+            note=''            
         tags=request.form.get("tags")
         taglist=tags.split(",")
         taglist.append(nameofsubm)
@@ -35,8 +38,11 @@ def addData(course):
             sess.add(new_document)
             sess.commit()
             taglist.append('NOTE')
-        file=request.files['file']
-        if file and allowed_file(file.filename):
+        try:
+            file=request.files['file']
+        except KeyError:
+            file=''
+        if file!='' and allowed_file(file.filename):
             print("ALLOWED")
             #file.save(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], file.filename))

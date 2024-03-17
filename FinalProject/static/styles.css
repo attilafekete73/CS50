@@ -75,6 +75,7 @@ body
 .myCourses
 {
     font-size: larger;
+    text-align: center;
 }
 
 .eventtitle
@@ -241,4 +242,9 @@ td
 .ADbtn
 {
     width:5em;
+}
+
+.MyCourse
+{
+    text-align: center;
 }

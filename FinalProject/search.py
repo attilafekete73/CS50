@@ -23,10 +23,20 @@ def search():
     if request.method == "POST":
         filter=request.form.getlist('searchbox')
         term=request.form.get('search')
+        docres=[]
+        notesql=sess.query(Document.path,Document.name,Document.date).join(Docutags,Docutags.documentid==Document.id).join(Tag,Tag.id==Docutags.tagid).filter(Tag.name=='NOTE').distinct().all()
+        for note in notesql:
+            with open(note[0]) as f:
+                contentlines=f.readlines()
+                content=""
+                for line in contentlines:
+                    content=content+line
+                if term in content:
+                    docres.append(note)
+                
         tagres=sess.query(Document.path,Document.name,Document.date).join(Docutags,Docutags.documentid==Document.id).join(Tag,Tag.id==Docutags.tagid).filter(Tag.name.like(f'%{term}%')).distinct().all()
         courseres=sess.query(Course.coursename).filter(Course.coursename.like(f'%{term}%')).all()
         userres=sess.query(User.username).filter(User.username.like(f'%{term}%')).all()
-        docres=[]
         if len(filter)==0:
             for doc in tagres:
                 docres.append(doc)
