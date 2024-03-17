@@ -12,7 +12,6 @@ from register import registerBP
 from courses import courseBP
 from people import personBP
 from addData import addDataBP
-from addDatared import addDataredBP
 from joincourse import joincourseBP
 from leavecourse import leavecourseBP
 from documents import documentBP
@@ -64,9 +63,6 @@ app.register_blueprint(personBP)
 
 #addData
 app.register_blueprint(addDataBP)
-
-#addDatared
-app.register_blueprint(addDataredBP)
 
 #joincourse
 app.register_blueprint(joincourseBP)
