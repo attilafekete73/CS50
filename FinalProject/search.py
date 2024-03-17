@@ -34,9 +34,9 @@ def search():
                 if term in content:
                     docres.append(note)
                 
-        tagres=sess.query(Document.path,Document.name,Document.date).join(Docutags,Docutags.documentid==Document.id).join(Tag,Tag.id==Docutags.tagid).filter(Tag.name.like(f'%{term}%')).distinct().all()
-        courseres=sess.query(Course.coursename).filter(Course.coursename.like(f'%{term}%')).all()
-        userres=sess.query(User.username).filter(User.username.like(f'%{term}%')).all()
+        tagres=sess.query(Document.path,Document.name,Document.date).join(Docutags,Docutags.documentid==Document.id).join(Tag,Tag.id==Docutags.tagid).filter(Tag.name.ilike(f'%{term}%')).distinct().all()
+        courseres=sess.query(Course.coursename).filter(Course.coursename.ilike(f'%{term}%')).all()
+        userres=sess.query(User.username).filter(User.username.ilike(f'%{term}%')).all()
         if len(filter)==0:
             for doc in tagres:
                 docres.append(doc)

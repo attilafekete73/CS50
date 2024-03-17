@@ -20,5 +20,5 @@ def person(person):
         print('searched')
         term=request.form.get('search')
         #submissions=sess.query(dbhead.Document.name,dbhead.Document.path).join(dbhead.User, dbhead.Document.userid==dbhead.User.id).filter(dbhead.User.username==person).filter(dbhead.Document.name.like(f'%{term}%')).all()
-        submissions=sess.query(dbhead.Document.name,dbhead.Document.path,dbhead.Document.date).join(dbhead.Docutags,dbhead.Docutags.documentid==dbhead.Document.id).join(dbhead.Tag,dbhead.Tag.id==dbhead.Docutags.tagid).join(dbhead.User,dbhead.User.id==dbhead.Document.userid).filter(dbhead.User.username==person).filter(dbhead.Tag.name.like(f'%{term}%')).distinct().all()
+        submissions=sess.query(dbhead.Document.name,dbhead.Document.path,dbhead.Document.date).join(dbhead.Docutags,dbhead.Docutags.documentid==dbhead.Document.id).join(dbhead.Tag,dbhead.Tag.id==dbhead.Docutags.tagid).join(dbhead.User,dbhead.User.id==dbhead.Document.userid).filter(dbhead.User.username==person).filter(dbhead.Tag.name.ilike(f'%{term}%')).distinct().all()
         return render_template("person.html",PERSONNAME=person,submissions=submissions)
