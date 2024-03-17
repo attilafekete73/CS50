@@ -83,7 +83,8 @@ body
     font-weight: bold;
 }
 
-.docincourse
+.docinco
+urse
 {
     margin:2em;
 }
@@ -101,4 +102,28 @@ body
 td
 {
     text-align: left;
+}
+
+.Csearch
+{
+    width:50%;
+}
+
+.Ctable
+{
+    margin-left: auto;
+    margin-right: auto;
+    font-size: large;
+}
+
+#Ch1
+{
+    font-size: 3em;
+    padding-bottom: 1em;
+}
+
+#Cbtndiv
+{
+    font-size: 1.3em;
+    padding-bottom:1em;
 }
