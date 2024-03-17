@@ -41,9 +41,9 @@ def document(doc):
         if len(notedec) == 0:
             return render_template("document.html",DOCNAME=doc,comments=comments,file=filename[len(filename)-1],isnote='False')
         else:
-            with open(filename) as f:
+            with open(docpath[0][0]) as f:
                 contentlines = f.readlines()
-                content=None
+                content=""
                 for line in contentlines:
                     content=content+line
                 return render_template("document.html",DOCNAME=doc,comments=comments,NOTE=content,isnote='True')

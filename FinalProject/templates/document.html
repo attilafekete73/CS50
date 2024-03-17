@@ -5,25 +5,29 @@
 {% endblock %}
 
 {% block main %}
-    <h1>{{ DOCNAME }}</h1>
-    {% if isnote == 'False' %}
-        <a href='/downloader/{{ file }}'>Download</a>
-        <script>console.log("Download")</script>
-    {% else %}
-        <div>{{ NOTE }}</div>
-        <script>console.log("NOTE")</script>
-    {% endif %}
-    <table>
-        <tr>
-            <td>
-                <form action="/document/{{ DOCNAME }}" method="post">
-                    <input type="text" name="newcomment" id=newcomment placeholder="Your comment...">
-                    <input type="submit" value="ADD">
-                </form>
-            </td>
-        </tr>
-        {% for comment in comments %}
-            <tr><td>{{ comment[0] }}</td><tr>
-        {% endfor %}
-    </table>
+    <h1 class='CPDh1'>{{ DOCNAME }}</h1>
+    <div id=DocFlex>
+        <table id='Dcomments'>
+            <tr>
+                <td>
+                    <form action="/document/{{ DOCNAME }}" method="post">
+                        <div class='btn-group Dcomment'>
+                            <input type="text" class="form-control searchbar" name="newcomment" id=newcomment placeholder="Your comment...">
+                            <input type="submit" class='btn btn-primary searchbtn' value="ADD">
+                        </div>
+                    </form>
+                </td>
+            </tr>
+            {% for comment in comments %}
+                <tr><td>{{ comment[0] }}</td><tr>
+            {% endfor %}
+        </table>
+        <div id='DOCdiv'>
+            {% if isnote == 'False' %}
+                <a id=Downloada href='/downloader/{{ file }}'>Download</a>
+            {% else %}
+                <div id='NOTEdiv'>{{ NOTE }}</div>
+            {% endif %}
+        </div>
+    </div>
 {% endblock %}

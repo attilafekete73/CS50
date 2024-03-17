@@ -6,10 +6,11 @@
 
 {% block main %}
 
+<div id=accflex>
 <div id="accordion">
     <div class="card">
     <div class="card-header">
-        <a class="btn" data-bs-toggle="collapse" href="#collapseOne">
+        <a class="collapsed btn cdhd" data-bs-toggle="collapse" href="#collapseOne">
             DOCUMENTS
         </a>
     </div>
@@ -20,7 +21,7 @@
     {% endif %}
         {% if docres %}
             <div class="card-body">
-                <table>
+                <table class='accTable'>
                     {% for doc in docres %}
                         <tr>
                             <td>
@@ -44,7 +45,7 @@
     
     <div class="card">
     <div class="card-header">
-        <a class="collapsed btn" data-bs-toggle="collapse" href="#collapseTwo">
+        <a class="collapsed btn cdhd" data-bs-toggle="collapse" href="#collapseTwo">
             COURSES
         </a>
     </div>
@@ -59,7 +60,7 @@
     {% endif %}
         {% if courseres %}
             <div class="card-body">
-                <table>
+                <table class='accTable'>
                     {% for course in courseres %}
                         <tr>
                             <td>
@@ -83,7 +84,7 @@
     
     <div class="card">
     <div class="card-header">
-        <a class="collapsed btn" data-bs-toggle="collapse" href="#collapseThree">
+        <a class="collapsed btn cdhd" data-bs-toggle="collapse" href="#collapseThree">
             USERS
         </a>
     </div>
@@ -92,17 +93,17 @@
             {% if not courseres %}
                 <div id="collapseThree" class="collapse show" data-bs-parent="#accordion">
             {% else %}
-                <div id="collapseTwo" class="collapse" data-bs-parent="#accordion">
+                <div id="collapseThree" class="collapse" data-bs-parent="#accordion">
             {% endif %}
         {% else %}
-            <div id="collapseTwo" class="collapse" data-bs-parent="#accordion">
+            <div id="collapseThree" class="collapse" data-bs-parent="#accordion">
         {% endif %}
     {% else %}
-        <div id="collapseTwo" class="collapse" data-bs-parent="#accordion">
+        <div id="collapseThree" class="collapse" data-bs-parent="#accordion">
     {% endif %}
         {% if userres %}
             <div class="card-body">
-                <table>
+                <table class='accTable'>
                     {% for user in userres %}
                         <tr>
                             <td>
@@ -124,7 +125,7 @@
     </div>
   
   </div>
-  
+</div>
 
 
     

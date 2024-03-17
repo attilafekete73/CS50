@@ -83,8 +83,7 @@ body
     font-weight: bold;
 }
 
-.docinco
-urse
+.docincourse
 {
     margin:2em;
 }
@@ -116,7 +115,7 @@ td
     font-size: large;
 }
 
-.CPh1
+.CPDh1
 {
     font-size: 3em;
     padding-bottom: 1em;
@@ -126,4 +125,79 @@ td
 {
     font-size: 1.3em;
     padding-bottom:1em;
+}
+
+#DocFlex
+{
+    display:flex;
+    justify-content: center;
+    align-content: center;
+}
+
+#Dcomments
+{
+    margin: 2em;
+    font-size: large;
+}
+
+#DOCdiv
+{
+    margin: 2em;
+    font-size: larger;
+}
+
+#NOTEdiv
+{
+    padding:1em;
+    background-color: rgb(255,179,255);
+}
+
+#Downloada
+{
+    padding:1em;
+    background-color: rgb(255,179,255);
+}
+
+.Dcomment
+{
+    width:100%
+}
+
+#accordion
+{
+    background-color: rgb(255,179,255);
+    width:50%;
+}
+
+#accflex
+{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.card-body
+{
+    background-color: rgb(255,179,255);
+}
+
+.cdhd
+{
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.card-header
+{
+    background-color: rgb(255,179,255);
+    align-content: center;
+}
+
+.accTable
+{
+    font-size: large;
+    margin-left: auto;
+    margin-right: auto;
 }
