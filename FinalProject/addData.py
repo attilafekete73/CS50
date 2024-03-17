@@ -25,15 +25,17 @@ def addData(course):
         teachername=request.form.get("teacher_name")
         try:
             note=request.form.get("note")
+            print(note)
         except KeyError:
             note=''            
         tags=request.form.get("tags")
         taglist=tags.split(",")
         taglist.append(nameofsubm)
         taglist.append(teachername)
-        if note != '':
+        if note != None:
+            print(note)
             with open('C:/Users/attil/CS50/FinalProject/documents/'+nameofsubm+'.txt','w') as f:
-                f.write(note)
+                f.write(str(note))
             new_document=dbhead.Document(path=UPLOAD_FOLDER+'/'+nameofsubm+'.txt',name=nameofsubm,date=datetime.datetime.now(),courseid=courseid[0][0],userid=userid)
             sess.add(new_document)
             sess.commit()

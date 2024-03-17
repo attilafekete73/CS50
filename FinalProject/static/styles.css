@@ -132,12 +132,14 @@ td
 {
     display:flex;
     justify-content: center;
-    align-content: center;
 }
 
 #Dcomments
 {
-    margin: 2em;
+
+    margin-right: 2%;
+    margin-left:2%;
+    width: 30%;
     font-size: large;
 }
 
@@ -145,11 +147,13 @@ td
 {
     margin: 2em;
     font-size: larger;
+    max-width: 50%;
 }
 
 #NOTEdiv
 {
     padding:1em;
+    float: left;
     background-color: rgb(255,179,255);
 }
 
@@ -161,7 +165,7 @@ td
 
 .Dcomment
 {
-    width:100%
+    width:100%;
 }
 
 #accordion
